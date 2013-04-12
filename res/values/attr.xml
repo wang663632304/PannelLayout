@@ -1,0 +1,14 @@
+<resources>
+    
+    <declare-styleable name="PannelLayout">
+        <attr name="columns" format="integer" />
+        <attr name="row_height" format="dimension" />
+        <attr name="divider_size" format="dimension" />
+    </declare-styleable>
+    
+    <declare-styleable name="PannelLayout_Layout">
+        <attr name="column_span" format="integer" />
+        <attr name="row_span" format="integer" />
+    </declare-styleable>
+
+</resources>

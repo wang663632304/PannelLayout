@@ -1,0 +1,245 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/com.github.riotopsys.pannellayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000" >
+
+    <com.github.riotopsys.pannellayout.PannelLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:columns="3"
+        app:divider_size="4dp"
+        >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00F" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0F0"
+            app:column_span="1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F00" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FF0"
+            app:row_span="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="2" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F0F"
+            app:column_span="1"
+            app:row_span="1" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#666"
+            />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00F" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0F0"
+            app:column_span="1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F00" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FF0"
+            app:row_span="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="2" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F0F"
+            app:column_span="1"
+            app:row_span="1" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#666"
+            /><View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00F" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0F0"
+            app:column_span="1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F00" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FF0"
+            app:row_span="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="2" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F0F"
+            app:column_span="1"
+            app:row_span="1" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#666"
+            /><View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00F" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0F0"
+            app:column_span="1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F00" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FF0"
+            app:row_span="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="2" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F0F"
+            app:column_span="1"
+            app:row_span="1" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#666"
+            /><View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00F" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0F0"
+            app:column_span="1" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F00" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#FF0"
+            app:row_span="3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="2" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#0FF"
+            app:row_span="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F0F"
+            app:column_span="1"
+            app:row_span="1" />
+        
+         <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#666"
+            />
+        
+    </com.github.riotopsys.pannellayout.PannelLayout>
+
+</ScrollView>
