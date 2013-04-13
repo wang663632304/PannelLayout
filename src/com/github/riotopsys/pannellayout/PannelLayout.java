@@ -66,32 +66,29 @@ public class PannelLayout extends ViewGroup {
 
 		int pannelWidthUnit, pannelHeightUnit;
 		
-//		if (heightMode == MeasureSpec.EXACTLY && heightMode == MeasureSpec.EXACTLY){
-//			pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
-//			pannelHeightUnit = (height / maxRow + 1) - dividerSize;
-//		} else {
-
-			// size of a 1x1 pannel without dividers included, we have one less
-			// divider
-			// per column
-			pannelWidthUnit = (width - dividerSize * (columns - 1))
-					/ columns;
+		pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
+		if (heightMode == MeasureSpec.EXACTLY && widthMode == MeasureSpec.EXACTLY){
+			pannelHeightUnit = (height - dividerSize * (maxRow)) / (maxRow+1);
+		} else {
 
 			pannelHeightUnit = (int) (pannelWidthUnit * rowRatio);
 			if (heightMode == MeasureSpec.EXACTLY) {
 				// force rows to fit
-				pannelHeightUnit = (height / maxRow + 1) - dividerSize;
-				pannelWidthUnit = (int) (pannelHeightUnit / rowRatio);
+				pannelHeightUnit = (height - dividerSize * (maxRow)) / (maxRow+1);
 			}
 			if (heightMode == MeasureSpec.AT_MOST) {
 				// force rows to fit
 				pannelHeightUnit = Math.min(
-						(height / maxRow + 1) - dividerSize, pannelHeightUnit);
-				pannelWidthUnit = (int) (pannelHeightUnit / rowRatio);
+						(height - dividerSize * (maxRow)) / (maxRow+1), pannelHeightUnit);
 			}
+			pannelWidthUnit = (int) (pannelHeightUnit / rowRatio);
 
-			width = pannelWidthUnit * columns + dividerSize * (columns - 1);
-//		}
+		}
+		
+		pannelWidthUnit = Math.max(pannelWidthUnit, 0); 
+		pannelHeightUnit = Math.max(pannelHeightUnit, 0); 
+		
+		width = pannelWidthUnit * columns + dividerSize * (columns - 1);
 
 		for (int c = 0; c < getChildCount(); c++) {
 			View child = getChildAt(c);
@@ -101,16 +98,15 @@ public class PannelLayout extends ViewGroup {
 			int pannelHeight = pannelHeightUnit * (lp.rowSpan + 1) + lp.rowSpan
 					* dividerSize;
 
-			child.measure(MeasureSpec.makeMeasureSpec(pannelWidth,
-					MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(
-					pannelHeight, MeasureSpec.EXACTLY));
+			child.measure(
+					MeasureSpec.makeMeasureSpec(pannelWidth, MeasureSpec.EXACTLY), 
+					MeasureSpec.makeMeasureSpec(pannelHeight, MeasureSpec.EXACTLY));
 
 		}
 
 		setMeasuredDimension(
 				resolveSize(width, widthMeasureSpec),
-				resolveSize((maxRow + 1) * pannelHeightUnit + maxRow
-						* dividerSize, heightMeasureSpec));
+				resolveSize((maxRow + 1) * pannelHeightUnit + (maxRow) * dividerSize, heightMeasureSpec));
 
 	}
 
@@ -121,9 +117,8 @@ public class PannelLayout extends ViewGroup {
 		int width = right - left;
 		int height = bottom - top;
 
-		int pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
-		int pannelHeightUnit = (int) (pannelWidthUnit * rowRatio);
-//		int pannelHeightUnit = (height / maxRow + 1) - dividerSize;
+		int pannelWidthUnit  = (width  - dividerSize * (columns - 1)) / columns;
+		int pannelHeightUnit = (height - dividerSize * (maxRow)) / (maxRow+1);
 
 		for (int c = 0; c < getChildCount(); c++) {
 			View child = getChildAt(c);
@@ -141,11 +136,7 @@ public class PannelLayout extends ViewGroup {
 
 	@Override
 	public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-		LayoutParams lp = new LayoutParams(getContext(), attrs);
-		if (lp.columnSpan > columns) {
-			lp.columnSpan = columns;
-		}
-		return lp;
+		return new LayoutParams(getContext(), attrs);
 	}
 
 	@Override
@@ -170,6 +161,9 @@ public class PannelLayout extends ViewGroup {
 
 			View child = getChildAt(c);
 			LayoutParams lp = (LayoutParams) child.getLayoutParams();
+			if ( lp.columnSpan >= columns ){
+				lp.columnSpan = columns -1;
+			}
 
 			while (!done) {
 				// jump to next row
