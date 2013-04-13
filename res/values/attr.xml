@@ -2,7 +2,7 @@
     
     <declare-styleable name="PannelLayout">
         <attr name="columns" format="integer" />
-        <attr name="row_height" format="dimension" />
+        <attr name="row_ratio" format="float" />
         <attr name="divider_size" format="dimension" />
     </declare-styleable>
     

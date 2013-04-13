@@ -16,8 +16,10 @@ public class PannelLayout extends ViewGroup {
 	private static final String TAG = PannelLayout.class.getSimpleName();
 
 	private int columns = 1;
-	private int rowHeight = dp(48);
+	private float rowRatio = .5f;
 	private int dividerSize = dp(4);
+
+	private int maxRow = 0;
 
 	public PannelLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -38,8 +40,7 @@ public class PannelLayout extends ViewGroup {
 				R.styleable.PannelLayout);
 		columns = a.getInteger(R.styleable.PannelLayout_columns, 1);
 
-		rowHeight = a.getDimensionPixelOffset(
-				R.styleable.PannelLayout_row_height, dp(48));
+		rowRatio = a.getFloat(R.styleable.PannelLayout_row_ratio, .5f);
 
 		dividerSize = a.getDimensionPixelOffset(
 				R.styleable.PannelLayout_divider_size, dp(4));
@@ -60,17 +61,37 @@ public class PannelLayout extends ViewGroup {
 		int width = MeasureSpec.getSize(widthMeasureSpec);
 		int height = MeasureSpec.getSize(heightMeasureSpec);
 
-		// int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-		// int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-		int maxRow = 0;
+		int pannelWidthUnit, pannelHeightUnit;
+		
+//		if (heightMode == MeasureSpec.EXACTLY && heightMode == MeasureSpec.EXACTLY){
+//			pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
+//			pannelHeightUnit = (height / maxRow + 1) - dividerSize;
+//		} else {
 
-		// size of a 1x1 pannel without dividers included, we have one less
-		// divider
-		// per column
-		int pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
+			// size of a 1x1 pannel without dividers included, we have one less
+			// divider
+			// per column
+			pannelWidthUnit = (width - dividerSize * (columns - 1))
+					/ columns;
 
-		int pannelHeightUnit = rowHeight;
+			pannelHeightUnit = (int) (pannelWidthUnit * rowRatio);
+			if (heightMode == MeasureSpec.EXACTLY) {
+				// force rows to fit
+				pannelHeightUnit = (height / maxRow + 1) - dividerSize;
+				pannelWidthUnit = (int) (pannelHeightUnit / rowRatio);
+			}
+			if (heightMode == MeasureSpec.AT_MOST) {
+				// force rows to fit
+				pannelHeightUnit = Math.min(
+						(height / maxRow + 1) - dividerSize, pannelHeightUnit);
+				pannelWidthUnit = (int) (pannelHeightUnit / rowRatio);
+			}
+
+			width = pannelWidthUnit * columns + dividerSize * (columns - 1);
+//		}
 
 		for (int c = 0; c < getChildCount(); c++) {
 			View child = getChildAt(c);
@@ -84,7 +105,6 @@ public class PannelLayout extends ViewGroup {
 					MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(
 					pannelHeight, MeasureSpec.EXACTLY));
 
-			maxRow = Math.max(maxRow, lp.row);
 		}
 
 		setMeasuredDimension(
@@ -102,7 +122,8 @@ public class PannelLayout extends ViewGroup {
 		int height = bottom - top;
 
 		int pannelWidthUnit = (width - dividerSize * (columns - 1)) / columns;
-		int pannelHeightUnit = rowHeight;
+		int pannelHeightUnit = (int) (pannelWidthUnit * rowRatio);
+//		int pannelHeightUnit = (height / maxRow + 1) - dividerSize;
 
 		for (int c = 0; c < getChildCount(); c++) {
 			View child = getChildAt(c);
@@ -141,6 +162,7 @@ public class PannelLayout extends ViewGroup {
 	private void arrangeChildren() {
 		Log.i(TAG, "arrangeChildren");
 		FillTracker tracker = new FillTracker(columns);
+		maxRow = 0;
 		for (int c = 0; c < getChildCount(); c++) {
 			boolean done = false;
 			int column, row;
@@ -180,6 +202,7 @@ public class PannelLayout extends ViewGroup {
 				// jump to next column
 				column++;
 			}
+			maxRow = Math.max(maxRow, lp.row + lp.rowSpan);
 		}
 	}
 
@@ -251,7 +274,8 @@ public class PannelLayout extends ViewGroup {
 			super(c, attrs);
 			TypedArray a = c.obtainStyledAttributes(attrs,
 					R.styleable.PannelLayout_Layout);
-			columnSpan = a.getInteger(R.styleable.PannelLayout_Layout_column_span, 0);
+			columnSpan = a.getInteger(
+					R.styleable.PannelLayout_Layout_column_span, 0);
 			rowSpan = a.getInteger(R.styleable.PannelLayout_Layout_row_span, 0);
 			a.recycle();
 		}
