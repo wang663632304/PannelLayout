@@ -58,8 +58,8 @@ public class PannelLayout extends ViewGroup {
 		Log.i(TAG, "onMeasure");
 		arrangeChildren();
 
-		int width = MeasureSpec.getSize(widthMeasureSpec);
-		int height = MeasureSpec.getSize(heightMeasureSpec);
+		int width = MeasureSpec.getSize(widthMeasureSpec) - ( getPaddingLeft() + getPaddingRight());
+		int height = MeasureSpec.getSize(heightMeasureSpec)  - ( getPaddingTop() + getPaddingBottom());
 
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -105,8 +105,8 @@ public class PannelLayout extends ViewGroup {
 		}
 
 		setMeasuredDimension(
-				resolveSize(width, widthMeasureSpec),
-				resolveSize((maxRow + 1) * pannelHeightUnit + (maxRow) * dividerSize, heightMeasureSpec));
+				resolveSize(width + getPaddingLeft() + getPaddingRight(), widthMeasureSpec),
+				resolveSize((maxRow + 1) * pannelHeightUnit + (maxRow) * dividerSize + getPaddingBottom() + getPaddingTop(), heightMeasureSpec));
 
 	}
 
@@ -114,8 +114,8 @@ public class PannelLayout extends ViewGroup {
 	protected void onLayout(boolean changed, int left, int top, int right,
 			int bottom) {
 		Log.i(TAG, "onLayout");
-		int width = right - left;
-		int height = bottom - top;
+		int width = right - left - ( getPaddingLeft() + getPaddingRight());
+		int height = bottom - top - ( getPaddingTop() + getPaddingBottom());
 
 		int pannelWidthUnit  = (width  - dividerSize * (columns - 1)) / columns;
 		int pannelHeightUnit = (height - dividerSize * (maxRow)) / (maxRow+1);
@@ -124,8 +124,8 @@ public class PannelLayout extends ViewGroup {
 			View child = getChildAt(c);
 			LayoutParams lp = (LayoutParams) child.getLayoutParams();
 
-			int childLeft = lp.column * (pannelWidthUnit + dividerSize);
-			int childTop = lp.row * (pannelHeightUnit + dividerSize);
+			int childLeft = lp.column * (pannelWidthUnit + dividerSize) + getPaddingLeft();
+			int childTop = lp.row * (pannelHeightUnit + dividerSize) + getPaddingTop();
 			child.layout(childLeft, childTop,
 					childLeft + child.getMeasuredWidth(),
 					childTop + child.getMeasuredHeight());
