@@ -10,7 +10,7 @@ Yes I spelled "panel" wrong but, now it's in the name and, it's stuck that way.
 
 ## Licence
 
-MALForAndroid 2 is licenced under: 
+PannelLayout is licenced under: 
 
 Apache License Version 2.0, January 2004
 
