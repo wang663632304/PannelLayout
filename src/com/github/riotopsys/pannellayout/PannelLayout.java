@@ -176,7 +176,15 @@ public class PannelLayout extends ViewGroup {
 			column = row = 0;
 
 			View child = getChildAt(c);
+			
 			LayoutParams lp = (LayoutParams) child.getLayoutParams();
+			
+			if ( child.getVisibility() == View.GONE){
+				lp.column = -1;
+				lp.row = -1;
+				continue;
+			}
+			
 			if ( lp.columnSpan >= columns ){
 				lp.columnSpan = columns -1;
 			}
