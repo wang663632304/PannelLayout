@@ -21,7 +21,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0F0"
-            app:column_span="1" />
+            app:layout_columnSpan="1" />
 
         <View
             android:layout_width="fill_parent"
@@ -32,26 +32,26 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FF0"
-            app:row_span="3" />
+            app:layout_rowSpan="3" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="2" />
+            app:layout_rowSpan="2" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="0" />
+            app:layout_rowSpan="0" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#F0F"
-            app:column_span="1"
-            app:row_span="1" />
+            app:layout_columnSpan="1"
+            app:layout_rowSpan="1" />
         
          <View
             android:layout_width="fill_parent"
@@ -67,7 +67,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0F0"
-            app:column_span="1" />
+            app:layout_columnSpan="1" />
 
         <View
             android:layout_width="fill_parent"
@@ -78,26 +78,26 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FF0"
-            app:row_span="3" />
+            app:layout_rowSpan="3" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="2" />
+            app:layout_rowSpan="2" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="0" />
+            app:layout_rowSpan="0" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#F0F"
-            app:column_span="1"
-            app:row_span="1" />
+            app:layout_columnSpan="1"
+            app:layout_rowSpan="1" />
         
          <View
             android:layout_width="fill_parent"
@@ -112,7 +112,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0F0"
-            app:column_span="1" />
+            app:layout_columnSpan="1" />
 
         <View
             android:layout_width="fill_parent"
@@ -123,26 +123,26 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FF0"
-            app:row_span="3" />
+            app:layout_rowSpan="3" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="2" />
+            app:layout_rowSpan="2" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="0" />
+            app:layout_rowSpan="0" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#F0F"
-            app:column_span="1"
-            app:row_span="1" />
+            app:layout_columnSpan="1"
+            app:layout_rowSpan="1" />
         
          <View
             android:layout_width="fill_parent"
@@ -157,7 +157,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0F0"
-            app:column_span="1" />
+            app:layout_columnSpan="1" />
 
         <View
             android:layout_width="fill_parent"
@@ -168,26 +168,26 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FF0"
-            app:row_span="3" />
+            app:layout_rowSpan="3" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="2" />
+            app:layout_rowSpan="2" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="0" />
+            app:layout_rowSpan="0" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#F0F"
-            app:column_span="1"
-            app:row_span="1" />
+            app:layout_columnSpan="1"
+            app:layout_rowSpan="1" />
         
          <View
             android:layout_width="fill_parent"
@@ -202,7 +202,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0F0"
-            app:column_span="1" />
+            app:layout_columnSpan="1" />
 
         <View
             android:layout_width="fill_parent"
@@ -213,26 +213,26 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#FF0"
-            app:row_span="3" />
+            app:layout_rowSpan="3" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="2" />
+            app:layout_rowSpan="2" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#0FF"
-            app:row_span="0" />
+            app:layout_rowSpan="0" />
 
         <View
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#F0F"
-            app:column_span="1"
-            app:row_span="1" />
+            app:layout_columnSpan="1"
+            app:layout_rowSpan="1" />
         
          <View
             android:layout_width="fill_parent"

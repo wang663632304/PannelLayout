@@ -293,8 +293,8 @@ public class PannelLayout extends ViewGroup {
 			TypedArray a = c.obtainStyledAttributes(attrs,
 					R.styleable.PannelLayout_Layout);
 			columnSpan = a.getInteger(
-					R.styleable.PannelLayout_Layout_column_span, 0);
-			rowSpan = a.getInteger(R.styleable.PannelLayout_Layout_row_span, 0);
+					R.styleable.PannelLayout_Layout_layout_columnSpan, 0);
+			rowSpan = a.getInteger(R.styleable.PannelLayout_Layout_layout_rowSpan, 0);
 			a.recycle();
 		}
 

@@ -23,8 +23,8 @@
     </declare-styleable>
     
     <declare-styleable name="PannelLayout_Layout">
-        <attr name="column_span" format="integer" />
-        <attr name="row_span" format="integer" />
+        <attr name="layout_columnSpan" format="integer" />
+        <attr name="layout_rowSpan" format="integer" />
     </declare-styleable>
 
 </resources>
